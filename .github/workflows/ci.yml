@@ -37,17 +37,17 @@ jobs:
       - name: Install npm
         run: npm install -g npm@11.10.0
 
+      - name: Verify npm version
+        run: npm --version
+
       - name: Install dependencies
-        run: |
-          cd ui
-          npm ci
+        working-directory: ui
+        run: npm ci
 
       - name: Run ESLint
-        run: |
-          cd ui
-          npm run lint
+        working-directory: ui
+        run: npm run lint
 
       - name: Run Vitest Tests
-        run: |
-          cd ui
-          npm run test
+        working-directory: ui
+        run: npm run test
